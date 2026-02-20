@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Security Monitoring AI Agent</title>
+</head>
+<body>
+    <h1>Security Monitoring AI Agent</h1>
+
+    <h2>Upload CSV Logs</h2>
+    <form action="/detect" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Detect Anomaly</button>
+    </form>
+
+    {% if tables %}
+        <h2>Detected Anomalies</h2>
+        {% for table in tables %}
+            {{ table|safe }}
+        {% endfor %}
+    {% endif %}
+</body>
+</html>
